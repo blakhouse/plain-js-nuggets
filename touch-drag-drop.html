@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<!-- 
+Original Snippet form:
+https://www.w3schools.com/html/html5_draganddrop.asp
+-->
+<html>
+<head>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+
+// touchstart handler
+function process_touchstart(ev) {
+  // Use the event's data to call out to the appropriate gesture handlers
+  switch (ev.touches.length) {
+    case 1: handle_one_touch(ev); break;
+    case 2: handle_two_touches(ev); break;
+    case 3: handle_three_touches(ev); break;
+    default: gesture_not_supported(ev); break;
+  }
+}
+// touchstart handler
+function process_touchstart2(ev) {
+  
+}
+// touchstart handler
+function process_touchmove(ev) {
+process_touchmove
+}
+// touchstart handler
+function process_touchcancel(ev) {
+
+}
+// touchstart handler
+function process_touchend(ev) {
+  
+}
+
+function init() {
+  var ele = document.getElementById();
+  ele.addEventListener('touchstart', process_touchstart, false);
+  ele.addEventListener('touchmove', process_touchmove, false);
+  ele.addEventListener('touchcancel', process_touchcancel, false);
+  ele.addEventListener('touchend', process_touchend, false);
+}
+
+</script>
+</head>
+<body>
+
+<div id="div1" style="background-color: green;" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+</body>
+</html>
